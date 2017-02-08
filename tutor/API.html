@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html  id="arriba">
+<head>
+<title>Tutor virtual inteligente</title>
+<style>
+
+body {
+    background-color: lightyellow;
+	padding-left:10%;
+	padding-right:5%;
+}
+
+h1,h2{
+    color: blue;
+    text-align: center;
+}
+
+h3{
+	color: black;
+	display:inline;
+	padding-left:10%;
+}
+
+h4{
+	text-align: left;
+	color: darkblue;
+	font-size: 1em;
+	text-decoration:underline;
+}
+
+table {
+	min-width: 100%;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+	text-align=justify;
+}
+li{
+	display:inline;
+}
+
+td{
+	padding:1%;
+	text-align:center;
+}
+
+footer{
+	text-align:center;
+}
+
+pre {
+	text-align: left;
+}
+
+.derecha {
+	width: 25%;
+	text-align: right;
+}
+
+.izquierda {
+	width: 75%;
+	text-align: left;
+}
+</style>
+
+
+</head>
+<body>
+
+<h1>Tutor Virtual Inteligente</h1>
+<h2>Servicios</h2>
+
+<nav>
+	<ul>
+		<li><h3><a href="#Login">Login</a></h3></li>
+		<li><h3><a href="#Materia">Materia</a></h3></li>
+		<li><h3><a href="#Test">Test</h3></a></li>
+		<li><h3><a href="#Resultado">Resultado</a></h3></li>
+		<li><h3><a href="#ESB">ESB</a></h3></li>
+	</ul>
+</nav>
+
+
+
+
+<div id="Login">
+<h4>Login.php</h4>
+<table border="1">
+	<tr>
+		<td class="derecha">DESCRIPCI&OacuteN</td>
+		<td class="izquierda">Servicio que auntentifica a trav&eacutes de token a un usuario.</td>
+	</tr>
+	<tr>
+		<td class="derecha">TIPO DE PETICI&OacuteN</td>
+		<td class="izquierda">POST</td>
+	</tr>	
+	<tr>
+		<td class="derecha">PAR&AacuteMETROS DE ENTRADA</td> 
+		<td class="izquierda">correo: <i>cadena</i></br>pass: <i>cadena</i></td> 
+	</tr>
+	<tr>
+		<td class="derecha">JSON DE SALIDA</td>
+		<td class="izquierda">
+<pre>
+{
+   "correo": "<i>cadena en formato de correo electr&oacutenico</i>",
+   "nombre": "<i>cadena</i>",
+   "token": "<i>cadena</i>",
+   "estado": "<i>cadena</i>"
+}
+</pre>
+		</td>
+	</tr>
+	<tr>
+		<td class="derecha">EJEMPLO</td> 
+		<td class="izquierda">URI: http://localhos/tutor/login.php?correo=admin@admin.com&pass=admin</br>
+<pre>
+{
+   "correo": "<i>admin@admin.com",
+   "nombre": "<i>Administrador</i>",
+   "token": "<i>ntv51tgipuv0eukcsambirar03</i>",
+   "estado": "<i>200 OK</i>"
+}
+</pre>
+		</td> 
+	</tr>
+	<tr>
+		<td colspan=2 class="derecha"><a href="#arriba">Ir Arriba</a></td>
+	</tr>
+</table>
+</div>
+
+
+<div id="Materia">
+<h4>Materia.php</h4>
+<table border="1">
+	<tr>
+		<td class="derecha">DESCRIPCI&OacuteN</td>
+		<td class="izquierda">Servicio que devuelve la teor&iacutea de la materia solicitada.</td>
+	</tr>
+	<tr>
+		<td class="derecha">TIPO DE PETICI&OacuteN</td>
+		<td class="izquierda">GET</td>
+	</tr>	
+	<tr>
+		<td class="derecha">PAR&AacuteMETROS DE ENTRADA</td> 
+		<td class="izquierda">materia: <i>cadena</i> Valores: <i>redes</i>, <i>hardware</i>, <i>seguridad</i>, <i>software</i></td> 
+	</tr>
+	<tr>
+		<td class="derecha">JSON DE SALIDA</td>
+		<td class="izquierda">
+<pre>
+{
+   "estado":"<i>cadena</i>",
+   "materia":
+	      {
+		   "id_materia": "<i>entero</i>",
+		   "nombre_m": "<i>cadena</i>",
+		   "texto_m": "<i>cadena</i>",
+		   "enlace": "<i>cadena</i>"
+	      }
+}
+</pre>
+		</td>
+	</tr>
+	<tr>
+		<td class="derecha">EJEMPLO</td>
+		<td class="izquierda">URI: http://localhost/tutor/materia.php?materia=hardware
+<pre>
+{
+   "estado":"200 OK",
+   "materia":
+	      {
+		   "id_materia": "1",
+		   "nombre_m": "hardware",
+		   "texto_m": "Teor&iacutea de la materia hardware...",
+		   "enlace": "NULL"
+	      }
+}
+</pre>
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2 class="derecha"><a href="#arriba">Ir Arriba</a></td>
+	</tr>
+</table>
+</div>
+
+
+<div id="Test">
+<h4>Test.php</h4>
+<table border="1">
+	<tr>
+		<td class="derecha">DESCRIPCI&OacuteN</td>
+		<td  class="izquierda">Servicio que devuelve el test y las posibles respuestas asociadas a una materia solicitada.</td>
+	</tr>
+	<tr>
+		<td class="derecha">TIPO DE PETICI&OacuteN</td>
+		<td class="izquierda">GET</td>
+	</tr>	
+	<tr>
+		<td class="derecha">PAR&AacuteMETROS DE ENTRADA</td> 
+		<td class="izquierda">materia: <i>cadena</i> Valores: <i>redes</i>, <i>hardware</i>, <i>seguridad</i>, <i>software</i></br>test: <i>entero</i> Valores: <i>1</i></td> 
+	</tr>
+	<tr>
+		<td class="derecha">JSON DE SALIDA</td>
+		<td class="izquierda">
+<pre>
+{
+   "estado": "<i>cadena</i>",
+   "test": 
+	   [
+		{
+		   "id_pregunta": "<i>entero</i>",
+		   "texto_p":"<i>cadena</i>",
+		   "id_materia":"<i>entero</i>",
+		   "materia":"<i>cadena</i>",
+		   "respuestas":
+				  {
+				     "a":"<i>cadena</i>",
+				     "b":"<i>cadena</i>",
+				     "c":"<i>cadena</i>",
+				     "d":"<i>cadena</i>"
+				  }
+		},
+		{
+		   "id_pregunta":"<i>entero</i>",
+		   "texto_p":"<i>cadena</i>",
+		   "id_materia":"<i>entero</i>",
+		   "materia": "<i>cadena</i>",
+		   "respuestas":
+				  {
+				     "a": "<i>cadena</i>",
+				     "b": "<i>cadena</i>",
+				     "c": "<i>cadena</i>",
+				     "d": "<i>cadena</i>"
+				  }
+		}
+	   ]
+}
+</pre>
+		</td>
+	</tr>
+	<tr>
+		<td class="derecha">EJEMPLO</td>
+		<td class="izquierda">URI: http://localhost/tutor/test.php?materia=hardware&test=1
+<pre>
+{
+   "estado": "OK 200",
+   "test": 
+	   [
+		{
+		   "id_pregunta": "3",
+		   "texto_p":"&iquestQu&eacute es el hardware?",
+		   "id_materia":"1",
+		   "materia":"Hardware",
+		   "respuestas":
+				  {
+				     "a":"Son los componentes virtuales del PC",
+				     "b":"Son los componentes f&iacutesicos del PC",
+				     "c":"A y B son correctas",
+				     "d":"Ninguna respuesta es correcta"
+				  }
+		},
+		{
+		   "id_pregunta":"4",
+		   "texto_p":"La memoria RAM almacena informaci&oacuten...",
+		   "id_materia":"1",
+		   "materia": "Hardware",
+		   "respuestas":
+				  {
+				     "a": "...temporalmente",
+				     "b": "...persistentemente",
+				     "c": "...las dos con correctas",
+				     "d": "...ninguna es correcta"
+				  }
+		}</br>			.</br>			.</br>			.
+	   ]
+}
+</pre>
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2 class="derecha"><a href="#arriba">Ir Arriba</a></td>
+	</tr>
+</table>
+</div>
+
+
+<div id="Resultado">
+<h4>Resultado.php</h4>
+<table border="1">
+	<tr>
+		<td class="derecha">DESCRIPCI&OacuteN</td>
+		<td class="izquierda">Servicio que devuelve el resultado obtenido al realizar un test.</td>
+	</tr>
+	<tr>
+		<td class="derecha">TIPO DE PETICI&OacuteN</td>
+		<td class="izquierda">POST</td>
+	</tr>	
+	<tr>
+		<td class="derecha">PAR&AacuteMETROS DE ENTRADA</td> 
+		<td class="izquierda">materia: <i>cadena</i> Valores: <i>redes</i>, <i>hardware</i>, <i>seguridad</i>, <i>software</i></br>test: <i>entero</i> Valores: <i>1</i></br>token: <i>cadena</i></br>numero_pregunta=letra_respuesta Valores: <i>1=a&2=c&3=b...</i></td> 
+	</tr>
+	<tr>
+		<td class="derecha">JSON DE SALIDA</td>
+		<td class="izquierda">
+<pre>
+{
+   "estado":"<i>cadena</i>",
+   "resultados":
+	         {
+		      "correctas":"<i>entero</i>",
+		      "incorrectas":"<i>entero</i>",
+		      "totales":"<i>entero</i>"
+	         }
+}
+</pre>
+		</td>
+	</tr>
+	<tr>
+		<td class="derecha">EJEMPLO</td>
+		<td class="izquierda">URI: http://localhost/SOA/tutor/resultado.php?materia=harware&test=1&token=ntv51tgipuv0eukcsambirar03&1=c&2=a&3=c&4=d&5=b
+<pre>
+{
+   "estado":"OK 200",
+   "resultados":
+	         {
+		      "correctas":"3",
+		      "incorrectas":"2",
+		      "totales":"5"
+	         }
+}
+</pre>
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2 class="derecha"><a href="#arriba">Ir Arriba</a></td>
+	</tr>
+</table>
+</div>
+
+<div id="ESB">
+<h4>ESB.php</h4>
+<table border="1">
+	<tr>
+		<td class="derecha">DESCRIPCI&OacuteN</td>
+		<td class="izquierda">El esb es el encargado de gestionar las peticiones de cada uno de los servicios.</td>
+	</tr>
+	<tr>
+		<td class="derecha">TIPO DE PETICI&OacuteN</td>
+		<td class="izquierda">GET</br>POST</td>
+	</tr>	
+	<tr>
+		<td class="derecha">PAR&AacuteMETROS DE ENTRADA</td> 
+		<td class="izquierda">Igual que los servicios anteriores.</td> 
+	</tr>
+	<tr>
+		<td class="derecha">JSON DE SALIDA</td>
+		<td class="izquierda">Igual que los servicios anteriores.</td>
+	</tr>
+	<tr>
+		<td colspan=2 class="derecha"><a href="#arriba">Ir Arriba</a></td>
+	</tr>
+</table>
+
+
+</div>
+<br>
+<hr>
+
+<footer>
+	Autores: Oliver Urones Garc&iacutea, Carlos Mart&iacuten Garc&iacutea, Iv&aacuten Mateos Arias y Silvia R&iacuteo R&iacuteo
+</footer>
+</body>
+</html> 
+
+
+
